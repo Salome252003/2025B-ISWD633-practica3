@@ -18,20 +18,36 @@ docker run -d --name <nombre contenedor> --mount type=bind,source=<ruta carpeta 
 ![Volúmenes](volumen-host.PNG)
 # COMPLETAR CON EL COMANDO
 
+docker run -d --name contenedor-nginx -p 8080:80 -v "C:\Users\prisc\OneDrive\Escritorio\nginx\html:/usr/share/nginx/html" nginx:alpine
+
 ### ¿Qué sucede al ingresar al servidor de nginx?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+
+Al ingresar al servidor Nginx mediante el comando docker exec -it contenedor-nginx sh se accede al sistema de archivos interno del contenedor y también se puede navegar y comprobar si está sirviendo 
 
 ### ¿Qué pasa con el archivo index.html del contenedor?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
 
+El bind-mount sobrescribe (oculta) el contenido por defecto del contenedor. El index.html queda oculto mientras el volumen está montado y Nginx sirve el index.html que está en la carpeta del host
+
 ### Ir a https://html5up.net/ y descargar un template gratuito, descomprirlo dentro de tu computador en la carpeta html
+
 ### ¿Qué sucede al ingresar al servidor de nginx?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+
+Al navegar dentro del servidor nginx se observan los archivos del sitio montados desde el host
+
+<img width="866" height="297" alt="image" src="https://github.com/user-attachments/assets/bb94a5b6-e4e5-4e7e-a36d-bebf81fe7fa0" />
+
 
 ### Eliminar el contenedor
 # COMPLETAR CON EL COMANDO
 
+docker rm -f contenedor-nginx
+
 ### ¿Qué sucede al crear nuevamente un contenedor montado al directorio definidos anteriormente?
 # COMPLETAR CON LA RESPUESTA A LA PREGUNTA
+
+Al crear nuevamente un contenedor montado al mismo directorio se puede observar que todos los archivos del sitio web permanecen intactos dentro de la carpeta del host
 
 
